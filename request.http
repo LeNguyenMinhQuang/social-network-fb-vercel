@@ -1,0 +1,116 @@
+### Register
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+   "username": "Quang",
+   "password": "123456"
+}
+
+### Login
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+   "username": "Quang",
+   "password": "1234"
+}
+
+### Check user is logged in
+GET http://localhost:5000/api/auth
+Content-Type: application/json
+Authorization: BEARED eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjVkM2JlMWRjOGQ1ZjJlZTFlNDg5MDgiLCJpYXQiOjE2NTAyNzc0MDJ9.vTOmPmgmODDZyCvCaUU7U2NCACHu_V6Pm6UkeBMboAY
+
+### Change password
+PUT http://localhost:5000/api/auth/changepassword
+Content-Type: application/json
+Authorization: BEARED eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjVkM2JlMWRjOGQ1ZjJlZTFlNDg5MDgiLCJpYXQiOjE2NTAyNzc0MDJ9.vTOmPmgmODDZyCvCaUU7U2NCACHu_V6Pm6UkeBMboAY
+
+{
+   "password": "1234",
+   "newPassword": "123456"
+}
+
+### Change information
+PUT http://localhost:5000/api/auth/user/625d3be1dc8d5f2ee1e48908/update
+Content-Type: application/json
+Authorization: BEARED eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjVkM2JlMWRjOGQ1ZjJlZTFlNDg5MDgiLCJpYXQiOjE2NTAyNzc0MDJ9.vTOmPmgmODDZyCvCaUU7U2NCACHu_V6Pm6UkeBMboAY
+
+{
+   "photoUrl": "https://scontent.fhan14-1.fna.fbcdn.net/v/t39.30808-6/227342396_1759305530921700_7801190278869845538_n.jpg?_nc_cat=104&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=3Q9fy10LBbIAX8hhSrc&_nc_ht=scontent.fhan14-1.fna&oh=00_AT8OcWUuxeSHuPtZmQGOAxOJlr1-4od6NxhjwUQfEgI-EQ&oe=6262B00C"
+}
+
+### Create chat box Quang - Giselle
+POST http://localhost:5000/api/chatbox/
+Content-Type: application/json
+Authorization: BEARED eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjYyN2NiOTg3OWZiZGNkYTcyZTA1M2YiLCJpYXQiOjE2NTA4NjUwNTZ9.dlBoQ-eDDCgfdJEsrTurMyDtvgNg-0g52oAteZ8maEc
+
+{
+   "guestId": "62627bee879fbdcda72e0532"
+}
+
+### Get chat box of Quang - Giselle
+GET http://localhost:5000/api/chatbox/62627c03879fbdcda72e053a
+Content-Type: application/json
+Authorization: BEARED eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjYyN2NiOTg3OWZiZGNkYTcyZTA1M2YiLCJpYXQiOjE2NTA4NjUwNTZ9.dlBoQ-eDDCgfdJEsrTurMyDtvgNg-0g52oAteZ8maEc
+
+
+### Send a message from Quang to Giselle
+POST http://localhost:5000/api/chatbox/message/send/62627c03879fbdcda72e053a
+Content-Type: application/json
+Authorization: BEARED eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjYyN2NiOTg3OWZiZGNkYTcyZTA1M2YiLCJpYXQiOjE2NTA4NjUwNTZ9.dlBoQ-eDDCgfdJEsrTurMyDtvgNg-0g52oAteZ8maEc
+
+
+{
+   "text": "Test giselle"
+}
+
+### Get all chat box of an user
+GET http://localhost:5000/api/chatbox/message
+Content-Type: application/json
+Authorization: BEARED eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjYyN2NiOTg3OWZiZGNkYTcyZTA1M2YiLCJpYXQiOjE2NTA4NjUwNTZ9.dlBoQ-eDDCgfdJEsrTurMyDtvgNg-0g52oAteZ8maEc
+
+### Get information of User
+GET http://localhost:5000/api/auth/user/626184fd6fb2fda5e9f9c2ce
+Content-Type: application/json
+
+### Get all user
+GET http://localhost:5000/api/auth/all
+Content-Type: application/json
+
+### Get post
+GET http://localhost:5000/api/post
+Content-Type: application/json
+
+{
+   "userId": "62627bee879fbdcda72e0532"
+}
+
+### Post a post
+POST  http://localhost:5000/api/post
+Content-Type: application/json
+Authorization: BEARED eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjY3ZmZjNWQ4OWViNTc3YmY5MmY2NTIiLCJpYXQiOjE2NTEwODI4MTF9.FP2gjv8gnuvW3_SktzUoC3_09_lYXJV1o4hkU31XE58
+
+{
+   "text": "abc",
+   "photoUrl": ""
+}
+
+### Get post
+POST  http://localhost:5000/api/post/all
+Content-Type: application/json
+
+{
+   "arrayId": "['62627c03879fbdcda72e053a','62627bee879fbdcda72e0532','62627cb9879fbdcda72e053f','62663e2f15fa1eda0f86c20c']"
+}
+
+
+### Like post
+PUT http://localhost:5000/api/post/reaction
+Content-Type: application/json
+Authorization: BEARED eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjYyN2JlZTg3OWZiZGNkYTcyZTA1MzIiLCJpYXQiOjE2NTA4ODEwNDV9.lJB4Qya1o71Tt-z9Cj5TPJbonZtIIuKpDGbZY33DL0g
+
+{
+   "postId": "6267c858bb48a18b9a7929c2"
+}
+

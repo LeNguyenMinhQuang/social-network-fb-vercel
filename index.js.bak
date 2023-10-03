@@ -1,0 +1,37 @@
+require("dotenv").config();
+const express = require("express");
+const mongoose = require("mongoose");
+const cors = require("cors");
+
+// Router
+const authRouter = require("./routes/auth");
+const ChatboxRouter = require("./routes/chatbox");
+const PostRouter = require("./routes/post");
+
+// MongoDB
+const connectDB = async () => {
+  try {
+    await mongoose.connect(
+      `mongodb+srv://${process.env.USERNAME_DB}:${process.env.PASSWORD_DB}@cluster0.542w7.mongodb.net/socialnetwork?retryWrites=true&w=majority`
+    );
+    console.log("MongoDB connected");
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+connectDB();
+
+// App
+const app = express();
+app.use(express.json()); // Để đọc được dữ liệu dạng json trả về.
+app.use(cors()); // Để giao tiếp được với client trong localhost
+
+app.get("/", (req, res) => res.json({ success: true, message: "hello" }));
+app.use("/api/auth", authRouter);
+app.use("/api/chatbox", ChatboxRouter);
+app.use("/api/post", PostRouter);
+
+const PORT = process.env.PORT || process.env.LOCALHOST_PORT;
+
+app.listen(PORT, () => console.log("Server started on port:", PORT));
